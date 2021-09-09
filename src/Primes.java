@@ -52,19 +52,25 @@ public class Primes {
 
         public static void main(String[] args) {
 
-            //Single Nonnegative integer n
-            int n = Integer.parseInt(args[0]);
+            try {
+                //Single Nonnegative integer n
+                int n = Integer.parseInt(args[0]);
 
-            int[] sieve = makeSieve(n);
-
-            for(int i = 2; i <= sieve.length - 1; i++){
-                if(sieve[i]==0){
-                    System.out.println(i);
+                if(n<=0) {
+                    throw new Exception("Value Cannot Be 0 or Negative");
                 }
+                int[] sieve = makeSieve(n);
+
+                for (int i = 2; i <= sieve.length - 1; i++) {
+                    if (sieve[i] == 0) {
+                        System.out.println(i);
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println(e);
             }
         }
-
-    }
+}
 
 
 
